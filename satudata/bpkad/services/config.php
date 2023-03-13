@@ -1,5 +1,5 @@
 <?php
-	$dbhost = 'localhost';
+	$dbhost = 'rnd-mysql';
 	$dbuser = 'adminjpas';
 	$dbpass = '453Td@erahjbr';
 	$dbname = 'db_jpas';

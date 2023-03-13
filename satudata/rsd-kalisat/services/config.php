@@ -1,5 +1,5 @@
 <?php
-	$dbhost = 'localhost';
+	$dbhost = 'rnd-mysql';
 	$dbuser = 'admindata';
 	$dbpass = 'Dat@53kt0raL';
 	$dbname = 'db_portaldata';
