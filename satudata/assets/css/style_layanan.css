@@ -1,0 +1,28 @@
+
+.table thead {
+	background-image: linear-gradient(#666, #222);
+	color:#fff;
+}
+
+.table tbody th,.table tbody td,.table tfoot th,.table tfoot td {
+    vertical-align: middle;
+	padding: 5px 8px 5px 8px;
+}
+
+.table tbody td {
+	background: #fff;
+	color:#000;
+}
+
+/*
+.table tbody th:first-child,.table tbody .th:first-child,.table tbody td:first-child,.table tfoot th:first-child,.table tfoot td:first-child {
+
+}
+*/
+.table tbody tr.even td {
+    background: #F5F5DC
+}
+
+.table tbody tr:hover th,.table tbody tr:hover .th,.table tbody tr:hover td {
+	background: #FFF4B5
+}

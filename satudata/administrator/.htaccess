@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^login.html$ login.php [L]
+RewriteRule ^logout.html$ logout.php [L]
+RewriteRule ^home.html$ home.php [L]
+
+RewriteRule ^print-disposisi-(.*)\.html$ print-kartu-disposisi.php?kdsurat=$1 [L]
+RewriteRule ^tampilkan-(.*)\.html$ tampilkan-surat-pdf.php?kdsurat=$1 [L]
+#RewriteRule ^print-arsip-(.*)\.html$ print-arsip-disposisi.php?kdsurat=$1 [L]
+#RewriteRule ^arsip-(.*)\.html$ tampilkan-arsip-pdf.php?kdsurat=$1 [L]
+
+#RewriteRule ^pengajuan-service-(.*)\.html$ aksi/pengajuan/print-surat-pengajuan.php?mdpengajuan=$1 [L]
+#RewriteRule ^pengajuan-renbut-(.*)\.html$ aksi/pengajuan/print-renbut-pengajuan.php?mdpengajuan=$1 [L]
+#RewriteRule ^pengajuan-urgen-(.*)\.html$ aksi/pengajuan/print-renbut-pengajuan-urgen.php?mdpengajuan=$1 [L]
+
+</IfModule>
+
+# secure htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+#allow from env=ajax
+</Files>
+
+options All -Indexes

@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^home.html$ home.php [L]
+RewriteRule ^admin.html$ admin.php [L]
+RewriteRule ^logout.html$ logout.php [L]
+
+</IfModule>
+
+# secure htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+#allow from env=ajax
+</Files>
+
+options All -Indexes

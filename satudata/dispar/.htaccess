@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^login.html$ ../login.php [L]
+RewriteRule ^logout.html$ logout.php [L]
+RewriteRule ^home.html$ home.php [L]
+
+RewriteRule ^cetak-sk-(.*)\.html$ aksi/pokdarwis/print-sk-pokdarwis.php?mdidsk=$1 [L]
+RewriteRule ^tampilkan-sp-(.*)\.html$ aksi/pokdarwis/tampilkan-surat-pdf.php?mdidsk=$1 [L]
+RewriteRule ^tampilkan-sk-(.*)\.html$ aksi/pokdarwis/tampilkan-surat-pdf.php?mdidsk=$1 [L]
+
+RewriteRule ^kartu-kesenian-(.*)\.html$ aksi/kesenian/print-kartu-kesenian.php?mdidkartu=$1 [L]
+
+</IfModule>
+
+# secure htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+#allow from env=ajax
+</Files>
+
+options All -Indexes

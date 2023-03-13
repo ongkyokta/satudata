@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache2
+spec:
+  selector:
+    matchLabels:
+      app: php-apache2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: php-apache2
+    spec:
+      containers:
+        - image: asia.gcr.io/devops-rnd-328408/php-apache:v2
+          name: php-apache2
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "500Mi"
+          ports:
+            - containerPort: 80
+              name: http
