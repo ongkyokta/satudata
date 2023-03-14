@@ -2,7 +2,7 @@ steps:
 # step 1:
 # pull the latest image, our build will be faster as docker uses the cached layers of the old images to build new images
 # exit 0 is in case the docker pull returns an error (When running this build for the first time there will be no latest
-# image to pull from the repository)
+# image to pull from the repository).
 - name: 'gcr.io/cloud-builders/docker' 
   entrypoint: 'bash'
   args: [
