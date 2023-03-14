@@ -6,5 +6,5 @@ do
     esac
 done
 #./image-build -p devops-rnd-328408
-echo "docker buildx build --platform linux/amd64 --rm -t asia.gcr.io/${project_name}/php-apache:v2 ."
-docker buildx build --platform linux/amd64 --rm -t asia.gcr.io/${project_name}/php-apache:v2 .
+echo "docker buildx build --platform linux/amd64 --rm -t asia.gcr.io/${project_name}/php-apache:v3 ."
+docker buildx build --platform linux/amd64 --rm -t asia.gcr.io/${project_name}/php-apache:v3 .

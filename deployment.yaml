@@ -14,7 +14,7 @@ spec:
         app: php-apache2
     spec:
       containers:
-        - image: asia.gcr.io/devops-rnd-328408/php-apache:v2
+        - image: asia.gcr.io/devops-rnd-328408/php-apache:v3
           name: php-apache2
           resources:
             requests:

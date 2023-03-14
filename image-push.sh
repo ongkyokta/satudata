@@ -6,5 +6,5 @@ do
     esac
 done
 #./image-push.sh -p devops-rnd-328408
-echo "docker push asia.gcr.io/${project_name}/php-apache:v2"
-docker push asia.gcr.io/${project_name}/php-apache:v2
+echo "docker push asia.gcr.io/${project_name}/php-apache:v3"
+docker push asia.gcr.io/${project_name}/php-apache:v3

@@ -1,0 +1,55 @@
+steps:
+# step 1:
+# pull the latest image, our build will be faster as docker uses the cached layers of the old images to build new images
+# exit 0 is in case the docker pull returns an error (When running this build for the first time there will be no latest
+# image to pull from the repository)
+- name: 'gcr.io/cloud-builders/docker' 
+  entrypoint: 'bash'
+  args: [
+    '-c',
+    'docker pull asia.gcr.io/$PROJECT_ID/php-apache:v3 || exit 0'
+  ]
+
+# build the docker image
+- name: gcr.io/cloud-builders/docker
+  args: [
+    'build',
+    '--build-arg',
+    'project_name=$PROJECT_ID',
+    '-t',
+    'asia.gcr.io/$PROJECT_ID/php-apache:v3',
+    '--cache-from', 'asia.gcr.io/$PROJECT_ID/php-apache:v3',
+    '.'
+  ]
+
+# push the images just before we update the Kubernetes deployment
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'push',
+    'asia.gcr.io/$PROJECT_ID/php-apache:v3',
+  ]
+
+# deploy the new version
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+    'apply',
+    '-f',
+    'deployment.yaml'
+  ]
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast2-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=devops-rnd'
+
+# change the service to new version
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+    'apply',
+    '-f',
+    'service.yaml'
+  ]
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast2-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=devops-rnd'
+
+options:
+  substitution_option: 'ALLOW_LOOSE'
